@@ -1,12 +1,15 @@
 package org.o7planning.Hibernate5.query;
 
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.o7planning.Hibernate5.HibernateUtils;
+import org.o7planning.Hibernate5.entities.Department;
 import org.o7planning.Hibernate5.entities.Employee;
 
 public class QueryObjectDemo {
@@ -38,7 +41,7 @@ public class QueryObjectDemo {
 				System.out.println("* EMP: " + emp.getEmpNo() + " : " + emp.getEmpName());
 			}
 			
-			System.out.println("************************");
+			System.out.println("******* WHERE CLAUSE *****************");
 			
 			// Query 2 with parameters
 			// Select e.* from EMPLOYEE e cross join DEPARTMENT d
@@ -48,15 +51,49 @@ public class QueryObjectDemo {
 			
 			// Create query object
 			Query query2 = session.createQuery(sql2);
-			query2.setParameter("deptNo", "D10");
+			query2.setParameter("deptNo", "D20");
 			
 			// Execute the query2
 			List<Employee> employees2 = query2.getResultList();
 			
 			//Loop
 			for(Employee emp2 : employees2) {
-				System.out.println("** EMP: " + emp2.getEmpNo() + " : " + emp2.getEmpName());
+				System.out.println("**DEP NO#: D20 | EMP NO#: " + emp2.getEmpNo() + " | EMP NAME: " + emp2.getEmpName());
 			}
+			
+			System.out.println("********** SELECT COLUMNS **************");
+			
+			 // Query some columns.
+            String sql3 = "Select e.empId, e.empNo, e.empName from "
+                    + Employee.class.getName() + " e ";
+ 
+            Query query3 = session.createQuery(sql3);
+  
+            // Execute Query.
+            // Get the array of Object
+            List<Object[]> datas = query3.getResultList();
+ 
+            for (Object[] emp : datas) {
+                System.out.println("***Emp Id: " + emp[0]);
+                System.out.println("***Emp No: " + emp[1]);
+                System.out.println("***Emp Name: " + emp[2]);
+            }
+            
+            System.out.println("********** GET DEPARTMENT WITH ITS EMPLOYEES **************");
+            
+            String deptNo = "D20";
+            Department dept = getDepartment(session, deptNo);
+            if(dept != null) {
+            	Set<Employee> deptEmployees = dept.getEmployees();
+                
+                System.out.println("Department Name: " + dept.getDeptName());
+                for(Employee deptEmps : deptEmployees) {
+                	System.out.println("Employee Name in " + dept.getDeptName() + ": " + deptEmps.getEmpName() + " in " + dept.getLocation());
+                }
+            }else {
+            	System.err.println("Department with NO# " + deptNo + " not found");
+            }
+            
 			
 			// Commit data.
 			session.getTransaction().commit();
@@ -65,5 +102,18 @@ public class QueryObjectDemo {
 			// Rollback incase of error
 			session.getTransaction().rollback();
 		}
+	}
+	
+	public static Department getDepartment(Session session, String deptNo) {
+		try {
+			String q = "Select d from " + Department.class.getName() + " d where d.deptNo =:deptNo";
+			Query query = session.createQuery(q);
+			query.setParameter("deptNo", deptNo);
+			return (Department) query.getSingleResult();	
+		}catch(NoResultException e) {
+			System.err.println("Error message from getDepartment: " + e.getMessage());
+		}
+		return null;
+		
 	}
 }
