@@ -1,9 +1,6 @@
 package com.example.jerseyapi;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -26,10 +23,11 @@ public class HelloWorld {
     }
 
     @POST
-    @Path("/post")
+    @Path("/post/")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createTrackInJSON(Track track){
-        String result = "Track saved: " + track;
+    public Response createTrackInJSON(@QueryParam("singer") String singer, @QueryParam("title") String title){
+        Track t = new Track(title, singer);
+        String result = "Track saved: " + t;
         return Response.status(201).entity(result).build();
     }
 }
