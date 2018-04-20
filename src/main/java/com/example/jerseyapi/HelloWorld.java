@@ -10,7 +10,7 @@ public class HelloWorld {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getMessage() {
-        return "Hello world!zzzz";
+        return "Hello Jersey!\n Try to add /get at the end of the URL.";
     }
 
     @GET
