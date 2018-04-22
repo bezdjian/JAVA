@@ -11,6 +11,7 @@
     <name>jerseyAPI</name>
 
     <dependencies>
+        <!-- Jersey -->
         <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>jsr311-api</artifactId>
@@ -52,6 +53,7 @@
             <artifactId>jersey-client</artifactId>
             <version>1.19.4</version>
         </dependency>
+        <!-- EO: Jersey -->
 
 
         <dependency>
@@ -59,6 +61,31 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.0.1</version>
         </dependency>
+
+        <!-- HIbernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.2.6.Final</version>
+        </dependency>
+        <!-- EO: HIbernate -->
+
+        <!-- Test Units -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- EO: Test Units -->
+
+        <!-- MYSQL -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.40</version>
+        </dependency>
+        <!-- EO: MYSQL -->
     </dependencies>
 
 
@@ -67,9 +94,10 @@
         <plugins>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19</version>
                 <configuration>
                     <includes>
-                        <include>**/*Tests.java</include>
+                        <include>**/*Test.java</include>
                     </includes>
                 </configuration>
             </plugin>

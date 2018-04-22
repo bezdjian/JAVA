@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.example.jerseyapi.entities.PersoncourseEntity" table="personcourse" schema="mylms">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="courseid">
+            <column name="courseid" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="enddate">
+            <column name="enddate" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="enrolldate">
+            <column name="enrolldate" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="personid">
+            <column name="personid" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="startdate">
+            <column name="startdate" sql-type="varchar(255)" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
