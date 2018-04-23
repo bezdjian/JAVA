@@ -23,10 +23,7 @@ public class PersonDaoService implements PersonDao {
 
     public PersonEntity getPersonById(int personid) {
         // Transacion begin
-        System.out.println("---------- STATUS: " + session.getTransaction().getStatus());
-        if(session.getTransaction().getStatus() != TransactionStatus.COMMITTED || !session.getTransaction().isActive()){
-            session.getTransaction().begin();
-        }
+       session.getTransaction().begin();
 
         // Select the Person by ID
         String getPersonSql = "SELECT p FROM " + PersonEntity.class.getName() + " p WHERE p.id =:personid";
@@ -47,7 +44,8 @@ public class PersonDaoService implements PersonDao {
             System.err.println("------- Person with ID : " + personid + " not found! -- " + e.getMessage());
             // Rollback incase of error
             session.getTransaction().rollback();
-            throw new ExceptionInInitializerError(e);
+            return new PersonEntity();
+            //throw new ExceptionInInitializerError(e);
         }finally {
             //HibernateUtils.shutSessionFactoryDown();
             //session.close();

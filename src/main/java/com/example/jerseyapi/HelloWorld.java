@@ -33,16 +33,27 @@ public class HelloWorld {
     @Produces(MediaType.APPLICATION_JSON)
     public JSONObject getPersonById(@QueryParam("personid") int personid){
         personDaoService = new PersonDaoService();
-        PersonEntity persons = personDaoService.getPersonById(98);
-        // Create JsonObject
+        PersonEntity persons = personDaoService.getPersonById(personid);
         try{
-            JSONObject jsonObject = new JSONObject("{" +
-                    "'Username':'"+persons.getUsername()+"'," +
-                    "'Firstname':'"+persons.getFirstname()+"'," +
-                    "'Lastname':'"+persons.getLastname()+"'" +
-                    "}"
-            );
-            return jsonObject;
+            if(persons.getId() > 1){
+                // Create JsonObject
+
+                    JSONObject jsonObject = new JSONObject("{" +
+                            "'Username':'"+persons.getUsername()+"'," +
+                            "'Firstname':'"+persons.getFirstname()+"'," +
+                            "'Lastname':'"+persons.getLastname()+"'" +
+                            "}"
+                    );
+                    return jsonObject;
+            }else{
+                //Return empty
+                JSONObject jsonObject = new JSONObject("{" +
+                        "'Status':'User not found.'," +
+                        "'PersonID':'"+personid+"'" +
+                        "}"
+                );
+                return jsonObject;
+            }
         }catch (JSONException e){
             System.err.println("JSON ERROR: " + e.getMessage());
             throw new ExceptionInInitializerError(e);
