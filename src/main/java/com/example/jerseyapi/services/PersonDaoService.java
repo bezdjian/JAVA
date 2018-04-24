@@ -23,7 +23,9 @@ public class PersonDaoService implements PersonDao {
 
     public PersonEntity getPersonById(int personid) {
         // Transacion begin
-       session.getTransaction().begin();
+        if(!session.getTransaction().isActive() && session.getTransaction().getStatus() != TransactionStatus.COMMITTED){
+            session.getTransaction().begin();
+        }
 
         // Select the Person by ID
         String getPersonSql = "SELECT p FROM " + PersonEntity.class.getName() + " p WHERE p.id =:personid";
@@ -37,13 +39,20 @@ public class PersonDaoService implements PersonDao {
 
         //Return the user
         try{
-            // Commit data.
-            session.getTransaction().commit();
-            return personsList.get(0);
+            if(personsList.get(0) != null){
+                //echo
+                System.err.println("------- Person with ID : " + personid + " is found!");
+                // Commit data.
+                //session.getTransaction().commit();
+                return personsList.get(0);
+            }else{
+                //Send empty person entity to manage with if in the post function
+                return new PersonEntity();
+            }
         }catch (IndexOutOfBoundsException e){
             System.err.println("------- Person with ID : " + personid + " not found! -- " + e.getMessage());
             // Rollback incase of error
-            session.getTransaction().rollback();
+            //session.getTransaction().rollback();
             return new PersonEntity();
             //throw new ExceptionInInitializerError(e);
         }finally {

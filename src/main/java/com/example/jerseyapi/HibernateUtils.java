@@ -29,7 +29,7 @@ public class HibernateUtils {
     }
 
     public static SessionFactory getSessionFactory(){
-        return buildSessionFactory();
+        return sessionFactory;
     }
 
     public static void shutSessionFactoryDown(){

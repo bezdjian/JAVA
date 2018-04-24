@@ -37,7 +37,6 @@ public class HelloWorld {
         try{
             if(persons.getId() > 1){
                 // Create JsonObject
-
                     JSONObject jsonObject = new JSONObject("{" +
                             "'Username':'"+persons.getUsername()+"'," +
                             "'Firstname':'"+persons.getFirstname()+"'," +
