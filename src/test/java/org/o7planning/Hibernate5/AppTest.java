@@ -3,6 +3,7 @@ package org.o7planning.Hibernate5;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.o7planning.Hibernate5.query.QueryObjectDemo;
 
 public class AppTest extends TestCase{
 
@@ -14,7 +15,7 @@ public class AppTest extends TestCase{
         super(name);
 
         System.out.println("Before test");
-
+        QueryObjectDemo.runQueryObjectDemo();
         System.out.println("After test");
     }
 

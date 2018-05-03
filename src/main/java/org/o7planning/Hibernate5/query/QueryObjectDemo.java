@@ -14,7 +14,7 @@ import org.o7planning.Hibernate5.entities.Employee;
 
 public class QueryObjectDemo {
 
-	public static void main(String args[]) {
+	public static void runQueryObjectDemo() {
 		SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
 		
 		Session session = sessionFactory.getCurrentSession();
@@ -85,7 +85,7 @@ public class QueryObjectDemo {
             Department dept = getDepartment(session, deptNo);
             if(dept != null) {
             	Set<Employee> deptEmployees = dept.getEmployees();
-                
+
                 System.out.println("Department Name: " + dept.getDeptName());
                 for(Employee deptEmps : deptEmployees) {
                 	System.out.println("Employee Name in " + dept.getDeptName() + ": " + deptEmps.getEmpName() + " in " + dept.getLocation());
@@ -104,7 +104,7 @@ public class QueryObjectDemo {
 		}
 	}
 	
-	public static Department getDepartment(Session session, String deptNo) {
+	private static Department getDepartment(Session session, String deptNo) {
 		try {
 			String q = "Select d from " + Department.class.getName() + " d where d.deptNo =:deptNo";
 			Query query = session.createQuery(q);
