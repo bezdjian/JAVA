@@ -21,6 +21,18 @@ public class PersonDaoService implements PersonDao {
     private static SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
     private static Session session = sessionFactory.getCurrentSession();
 
+    public PersonEntity addPerson(PersonEntity p) {
+        // Transacion begin
+        if(!session.getTransaction().isActive() && session.getTransaction().getStatus() != TransactionStatus.COMMITTED){
+            session.getTransaction().begin();
+        }
+
+        //Save Person entity
+        session.saveOrUpdate("PersonEntity", p);
+        session.getTransaction().commit();
+        return p;
+    }
+
     public PersonEntity getPersonById(int personid) {
         // Transacion begin
         if(!session.getTransaction().isActive() && session.getTransaction().getStatus() != TransactionStatus.COMMITTED){

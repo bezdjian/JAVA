@@ -6,8 +6,9 @@ import com.example.jerseyapi.entities.PersoncourseEntity;
 /**
  * Created by bezdj on 22/04/2018.
  */
-public interface PersonDao {
+public interface PersonDao{
 
+    public PersonEntity addPerson(PersonEntity p);
     public PersonEntity getPersonById(int personid);
     public PersoncourseEntity getPersonCoursesByPersonId(int personid);
 }

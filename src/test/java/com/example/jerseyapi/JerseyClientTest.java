@@ -25,43 +25,28 @@ public class JerseyClientTest extends TestCase {
     public void testApp(){
         System.out.println("\n\n---------------- testApp ----------------");
 
-        /*HelloWorld helloWorld = new HelloWorld();
+        HelloWorld helloWorld = new HelloWorld();
         JSONObject jsonObject = helloWorld.getPersonById(98);
-        //JSONObject jsonObject = helloWorld.getPersonById(998);
 
-        System.out.println("----- JSON: " + jsonObject);
         System.out.println("1 ----- JSON: " + jsonObject);
 
-        //PersonEntity persons = personDaoService.getPersonById(999);
         JSONObject jsonObject1 = helloWorld.getPersonById(93);
         System.out.println("2 ----- JSON: " + jsonObject1);
 
         JSONObject jsonObject2 = helloWorld.getPersonById(1198);
         System.out.println("3 ----- JSON: " + jsonObject2);
-        */
-        System.out.println("\n\n---------------- EO: testApp ----------------");
 
-        /*
-         personDaoService = new PersonDaoService();
-         PersonEntity persons = personDaoService.getPersonById(98);
-         PersonEntity persons = personDaoService.getPersonById(101);
-         // Create JsonObject
-         try{
-             JSONObject jsonObject = new JSONObject("{" +
-             JSONObject jsonObjects = new JSONObject("{" +
-                     "'ID':'"+persons.getId()+"'," +
-                     "'Username':'"+persons.getUsername()+"'," +
-                     "'Firstname':'"+persons.getFirstname()+"'," +
-                     "'Lastname':'"+persons.getLastname()+"'" +
-                     "}"
-             );
-             System.out.println("JSONOBJECT: " + jsonObject.toString());
-             System.out.println("JSONOBJECT: " + jsonObjects.toString());
-         }catch (JSONException e){
-             System.err.println("JSON ERROR: " + e.getMessage());
-             throw new ExceptionInInitializerError(e);
-         }
-         */
+        System.out.println("\n\n---------------- testApp: ADD PERSON ----------------");
+        PersonEntity p = new PersonEntity();
+        p.setUsername("test.app");
+        p.setEmail("test.app@test.capp");
+        p.setFirstname("Test");
+        p.setLastname("App");
+        JSONObject js = helloWorld.addPerson("TEST", "APP");
+        System.out.println("\n\n ---------- ADD PERSON: " + js);
+        System.out.println("\n\n---------------- EO: testApp: ADD PERSON ----------------");
+
+        System.out.println("\n\n---------------- EO: testApp ----------------");
     }
 
     /*public void testGet(){
