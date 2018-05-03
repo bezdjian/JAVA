@@ -45,6 +45,7 @@
     <orderEntry type="library" name="Hibernate 5.2.16-5.2.16" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="mysql:mysql-connector-java:5.1.40" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.40" level="project" />
     <orderEntry type="library" name="Maven: javax.ws.rs:jsr311-api:1.1.1" level="project" />
     <orderEntry type="library" name="Maven: com.sun.jersey:jersey-core:1.19.4" level="project" />
     <orderEntry type="library" name="Maven: com.sun.jersey:jersey-json:1.19.4" level="project" />
