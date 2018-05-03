@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58482b09-da13-4b41-97d5-1debc5f376b1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_2_6_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_34.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_11.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.o7planning.Hibernate5.AppTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.o7planning.Hibernate5.Test.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/org.o7planning.Hibernate5.AppTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/org.o7planning.Hibernate5.Test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/o7planning/Hibernate5/query/QueryObjectDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/o7planning/Hibernate5/query/QueryObjectDemo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,8 +35,8 @@
       <file leaf-file-name="QueryObjectDemo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/o7planning/Hibernate5/query/QueryObjectDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="86" column="61" lean-forward="true" selection-start-line="86" selection-start-column="61" selection-end-line="86" selection-end-column="61" />
+            <state relative-caret-position="376">
+              <caret line="83" column="32" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -113,6 +99,7 @@
         <option value="$PROJECT_DIR$/src/test/java/org/o7planning/Hibernate5/AppTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/o7planning/Hibernate5/HibernateUtils.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/o7planning/Hibernate5/query/QueryObjectDemo.java" />
       </list>
     </option>
   </component>
@@ -441,7 +428,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1516000" />
+    <option name="totallyTimeSpent" value="2007000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -641,8 +628,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/o7planning/Hibernate5/query/QueryObjectDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="86" column="61" lean-forward="true" selection-start-line="86" selection-start-column="61" selection-end-line="86" selection-end-column="61" />
+        <state relative-caret-position="376">
+          <caret line="83" column="32" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
         </state>
       </provider>
     </entry>

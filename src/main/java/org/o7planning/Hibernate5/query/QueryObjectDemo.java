@@ -81,7 +81,7 @@ public class QueryObjectDemo {
             
             System.out.println("********** GET DEPARTMENT WITH ITS EMPLOYEES **************");
             
-            String deptNo = "D20";
+            String deptNo = "D01";
             Department dept = getDepartment(session, deptNo);
             if(dept != null) {
             	Set<Employee> deptEmployees = dept.getEmployees();
