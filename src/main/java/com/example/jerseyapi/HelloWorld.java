@@ -31,6 +31,44 @@ public class HelloWorld {
     }
 
     @GET
+    @Path("/updateperson")
+    @Produces(MediaType.APPLICATION_JSON)
+    public JSONObject updatePerson(@QueryParam("personid") int personid, @QueryParam("firstname") String firstname, @QueryParam("lastname") String lastname){
+        personDaoService = new PersonDaoService();
+        String username = firstname.toLowerCase() + "." + lastname.toLowerCase();
+        String email = username + "@cybercom.com";
+        PersonEntity p = new PersonEntity();
+        p.setId(personid);
+        p.setUsername(username);
+        p.setEmail(email);
+        p.setFirstname(firstname);
+        p.setLastname(lastname);
+        PersonEntity person = personDaoService.addPerson(p);
+
+        try{
+            if(person.getId() >= 1){
+                JSONObject jSon = new JSONObject("{" +
+                        "'Username':'"+person.getUsername()+"'," +
+                        "'Firstname':'"+person.getFirstname()+"'," +
+                        "'Lastname':'"+person.getLastname()+"'" +
+                        "}");
+                return jSon;
+            }else{
+                //Return empty
+                JSONObject jsonObject = new JSONObject("{" +
+                        "'Status':'User not found.','PersonID':'"+person.getId()+"'" +
+                        "}"
+                );
+                return jsonObject;
+            }
+        }catch (JSONException e){
+            System.err.println("JSON: " + e.getMessage());
+            throw new ExceptionInInitializerError(e);
+        }
+
+    }
+
+    @GET
     @Path("/addperson")
     @Produces(MediaType.APPLICATION_JSON)
     public JSONObject addPerson(@QueryParam("firstname") String firstname, @QueryParam("lastname") String lastname){

@@ -8,12 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9afc00ab-0e47-45f6-b1b3-a6a58f5180ea" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jerseyAPI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jerseyAPI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/HelloWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/doa/PersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/doa/PersonDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/entities/PersonEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/entities/PersonEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/services/PersonDaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/services/PersonDaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/jerseyapi/JerseyClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/jerseyapi/JerseyClientTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/jerseyAPI##1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/jerseyAPI##1.0-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
@@ -52,20 +48,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersonDaoService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PersonDaoService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jerseyapi/services/PersonDaoService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+            <state relative-caret-position="530">
+              <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+              <folding>
+                <element signature="e#2907#2908#0" expanded="true" />
+                <element signature="e#2934#2935#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JerseyClientTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JerseyClientTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/example/jerseyapi/JerseyClientTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="43" column="29" lean-forward="true" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+            <state relative-caret-position="380">
+              <caret line="41" column="41" lean-forward="true" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -75,6 +75,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
               <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HelloWorld.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jerseyapi/HelloWorld.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="530">
+              <caret line="45" column="51" lean-forward="true" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -133,9 +142,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/HibernateUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/doa/PersonDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/entities/PersonEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/HelloWorld.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/example/jerseyapi/JerseyClientTest.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jerseyapi/services/PersonDaoService.java" />
       </list>
     </option>
@@ -813,7 +822,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36144000" />
+    <option name="totallyTimeSpent" value="38368000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -1128,13 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jerseyapi/JerseyClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="34" column="9" selection-start-line="15" selection-start-column="8" selection-end-line="34" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jerseyAPI.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -1172,13 +1174,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jerseyapi/HelloWorld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jerseyapi/HibernateUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1190,17 +1185,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/jerseyapi/JerseyClientTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jerseyapi/JerseyClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="43" column="29" lean-forward="true" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+        <state relative-caret-position="460">
+          <caret line="30" column="39" selection-start-line="15" selection-start-column="8" selection-end-line="34" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jerseyapi/HelloWorld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="45" column="51" lean-forward="true" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jerseyapi/services/PersonDaoService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+        <state relative-caret-position="530">
+          <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+          <folding>
+            <element signature="e#2907#2908#0" expanded="true" />
+            <element signature="e#2934#2935#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/jerseyapi/JerseyClientTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="41" column="41" lean-forward="true" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
         </state>
       </provider>
     </entry>

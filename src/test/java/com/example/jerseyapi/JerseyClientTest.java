@@ -26,17 +26,17 @@ public class JerseyClientTest extends TestCase {
         System.out.println("\n\n---------------- testApp ----------------");
 
         HelloWorld helloWorld = new HelloWorld();
-        JSONObject jsonObject = helloWorld.getPersonById(98);
+        JSONObject jsonObject = helloWorld.getPersonById(7);
 
         System.out.println("1 ----- JSON: " + jsonObject);
 
         JSONObject jsonObject1 = helloWorld.getPersonById(93);
         System.out.println("2 ----- JSON: " + jsonObject1);
 
-        JSONObject jsonObject2 = helloWorld.getPersonById(1198);
+        JSONObject jsonObject2 = helloWorld.getPersonById(8);
         System.out.println("3 ----- JSON: " + jsonObject2);
 
-        System.out.println("\n\n---------------- testApp: ADD PERSON ----------------");
+        /*System.out.println("\n\n---------------- testApp: ADD PERSON ----------------");
         PersonEntity p = new PersonEntity();
         p.setUsername("test.app");
         p.setEmail("test.app@test.capp");
@@ -44,12 +44,22 @@ public class JerseyClientTest extends TestCase {
         p.setLastname("App");
         JSONObject js = helloWorld.addPerson("TEST", "APP");
         System.out.println("\n\n ---------- ADD PERSON: " + js);
-        System.out.println("\n\n---------------- EO: testApp: ADD PERSON ----------------");
+        System.out.println("\n\n---------------- EO: testApp: ADD PERSON ----------------");*/
 
         System.out.println("\n\n---------------- EO: testApp ----------------");
     }
 
-    /*public void testGet(){
+    public void testUpdate(){
+        System.out.println("\n\n---------------- testApp: UPDATE PERSON ----------------");
+
+        HelloWorld helloWorld = new HelloWorld();
+        JSONObject js = helloWorld.updatePerson(7,"AMJKH", "ESHEG");
+        System.out.println("\n ---------- UPDATE PERSON: " + js);
+
+        System.out.println("\n---------------- EO: testApp: UPDATE PERSON ----------------");
+    }
+
+    public void testGet(){
         System.out.println("\n\n---------------- TESTGET ----------------");
         try{
             ClientConfig cc = new DefaultClientConfig();
@@ -74,13 +84,13 @@ public class JerseyClientTest extends TestCase {
         System.out.println("\n---------------- EO: TESTGET ---------------- \n\n");
     }
 
-    /*public void testGetPerson(){
+    public void testGetPerson(){
         System.out.println("---------------- testGetPerson, Client test ----------------");
         try{
             ClientConfig cc = new DefaultClientConfig();
             Client client = Client.create(cc);
 
-            WebResource webResource = client.resource("http://localhost:8080/jerseyAPI/person/?personid=98");
+            WebResource webResource = client.resource("http://localhost:8080/jerseyAPI/person/?personid=7");
             ClientResponse clientResponse = webResource.accept(MediaType.APPLICATION_JSON_TYPE).get(ClientResponse.class);
 
             //NOT OK
@@ -97,5 +107,5 @@ public class JerseyClientTest extends TestCase {
             System.out.println("ClientHandlerException: " + e.getMessage());
         }
         System.out.println("\n---------------- EO: testGetPerson ----------------\n\n");
-    }*/
+    }
 }

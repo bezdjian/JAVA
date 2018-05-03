@@ -28,7 +28,7 @@ public class PersonDaoService implements PersonDao {
         }
 
         //Save Person entity
-        session.saveOrUpdate("PersonEntity", p);
+        p = (PersonEntity) session.merge("PersonEntity", p);
         session.getTransaction().commit();
         return p;
     }
@@ -49,6 +49,9 @@ public class PersonDaoService implements PersonDao {
         // Set the resultList
         List<PersonEntity> personsList = query.getResultList();
 
+        for(PersonEntity p : personsList){
+            System.out.println("----- PERSON ID: " + p.getId());
+        }
         //Return the user
         try{
             if(personsList.get(0) != null){
