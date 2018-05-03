@@ -25,34 +25,7 @@ public class JerseyClientTest extends TestCase {
     public void testApp(){
         System.out.println("\n\n---------------- testApp ----------------");
 
-        HelloWorld helloWorld = new HelloWorld();
-        JSONObject jsonObject = helloWorld.getPersonById(998);
 
-        System.out.println("1 ----- JSON: " + jsonObject);
-
-        //PersonEntity persons = personDaoService.getPersonById(999);
-        JSONObject jsonObject1 = helloWorld.getPersonById(93);
-        System.out.println("2 ----- JSON: " + jsonObject1);
-
-        JSONObject jsonObject2 = helloWorld.getPersonById(1198);
-        System.out.println("3 ----- JSON: " + jsonObject2);
-
-        personDaoService = new PersonDaoService();
-        PersonEntity persons = personDaoService.getPersonById(101);
-        // Create JsonObject
-        try{
-            JSONObject jsonObjects = new JSONObject("{" +
-                    "'ID':'"+persons.getId()+"'," +
-                    "'Username':'"+persons.getUsername()+"'," +
-                    "'Firstname':'"+persons.getFirstname()+"'," +
-                    "'Lastname':'"+persons.getLastname()+"'" +
-                    "}"
-            );
-            System.out.println("JSONOBJECT: " + jsonObjects.toString());
-        }catch (JSONException e){
-            System.err.println("JSON ERROR: " + e.getMessage());
-            throw new ExceptionInInitializerError(e);
-        }
 
         System.out.println("\n\n---------------- EO: testApp ----------------");
     }

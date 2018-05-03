@@ -5,7 +5,9 @@ import com.example.jerseyapi.services.PersonDaoService;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -66,5 +68,13 @@ public class HelloWorld {
         Track t = new Track(title, singer);
         String result = "Track saved: " + t;
         return Response.status(201).entity(result).build();
+    }
+
+    @GET
+    @Path("/{default: .*}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response returnWrongPath(@Context HttpServletRequest request){
+        String url = request.getRequestURL().toString();
+        return Response.status(404).entity("URL " + url + "  not found").build();
     }
 }
