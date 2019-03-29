@@ -1,4 +1,4 @@
-package com.cybercom.example.springbootdemo.controllers;
+package com.cybercom.example.springbootdemo.rest.controllers;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

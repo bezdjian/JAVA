@@ -1,34 +1,41 @@
-package com.cybercom.example.springbootdemo.controllers;
+package com.cybercom.example.springbootdemo.rest.controllers;
 
 import com.cybercom.example.springbootdemo.entities.PersonEntity;
 import com.cybercom.example.springbootdemo.exceptions.PersonException;
 import com.cybercom.example.springbootdemo.repos.PersonRepository;
+import com.cybercom.example.springbootdemo.rest.responses.PersonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping(value = "/person", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 public class PersonController {
+
+    private static String PERSON_NOT_FOUND_WITH = "Person not found with ";
 
     @Autowired
     private PersonRepository personRepository;
 
-    @GetMapping
-    public List<PersonEntity> getAll(){
-        return personRepository.findAll();
+    @RequestMapping(value = "/all")
+    @ResponseBody
+    public List<PersonResponse> getAll(){
+        return personRepository.findAll()
+                .stream().map(PersonResponse::new).collect(Collectors.toList());
     }
 
-    @GetMapping("/{id}")
-    public PersonEntity getPerson(@PathVariable int id){
+    @RequestMapping(value = "/{id}")
+    public ResponseEntity<PersonResponse> getPersonByID(@PathVariable int id){
         Optional<PersonEntity> optionalPersonEntity = personRepository.findById(id);
         if(optionalPersonEntity.isPresent()){
-            return optionalPersonEntity.get();
+            PersonEntity p = optionalPersonEntity.get();
+            return new ResponseEntity<>(new PersonResponse(p), HttpStatus.OK);
         }
         throw new PersonException("Person not found with ID " + id);
     }
@@ -37,7 +44,7 @@ public class PersonController {
     public List<PersonEntity> searchPersons(@PathVariable String firstname, @PathVariable String lastname){
         List<PersonEntity> personEntities = personRepository.findByFirstnameAndLastnameCustom(firstname, lastname);
         if(personEntities.isEmpty()){
-            throw new PersonException("Persons not found with firstname " + firstname + " and lastname " + lastname);
+            throw new PersonException(PERSON_NOT_FOUND_WITH + " firstname " + firstname + " and lastname " + lastname);
         }
         return personEntities;
 
@@ -46,6 +53,7 @@ public class PersonController {
     @GetMapping("/withrole/{role}")
     public List<PersonEntity> getByRole(@PathVariable String role){
         List<PersonEntity> personEntities = personRepository.findByRole(role);
+        if(personEntities.isEmpty()) throw new PersonException(PERSON_NOT_FOUND_WITH + "role " + role);
         return personEntities;
     }
 }
