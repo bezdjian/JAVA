@@ -51,9 +51,9 @@ public class PersonController {
     }
 
     @GetMapping("/withrole/{role}")
-    public List<PersonEntity> getByRole(@PathVariable String role){
+    public List<PersonResponse> getByRole(@PathVariable String role){
         List<PersonEntity> personEntities = personRepository.findByRole(role);
         if(personEntities.isEmpty()) throw new PersonException(PERSON_NOT_FOUND_WITH + "role " + role);
-        return personEntities;
+        return personEntities.stream().map(PersonResponse::new).collect(Collectors.toList());
     }
 }
