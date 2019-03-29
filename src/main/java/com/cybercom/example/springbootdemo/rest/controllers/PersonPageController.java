@@ -20,6 +20,7 @@ public class PersonPageController {
     public String showAllPersons(Model model){
         List<PersonEntity> persons = personRepository.findAll();
         model.addAttribute("personlist", persons);
+        model.addAttribute("module", "home");
         return "persons";
     }
 }
