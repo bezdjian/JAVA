@@ -18,14 +18,13 @@ public class PersonCoursesRepositoryCustomImpl implements PersonCoursesRepositor
     public List<PersonCoursesResponse> findPersonCoursesByPID(int pid) {
         em.getProperties().entrySet().stream().forEach(System.out::println);
 
-        List<PersonCoursesResponse> list = em.createQuery(
+        return em.createQuery(
                 "select p.username, p.firstname, p.lastname, c.coursename, c.description, c.idnumber from PersonEntity p " +
                         "join PersoncourseEntity pc on pc.personid = p.id " +
                         "join CourseEntity c on c.id = pc.courseid " +
                         "where p.id = :pid")
                 .setParameter("pid", pid)
                 .getResultList();
-        return list;
 
     }
 }
