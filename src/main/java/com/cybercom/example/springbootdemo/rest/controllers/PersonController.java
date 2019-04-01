@@ -1,8 +1,12 @@
 package com.cybercom.example.springbootdemo.rest.controllers;
 
 import com.cybercom.example.springbootdemo.entities.PersonEntity;
+import com.cybercom.example.springbootdemo.entities.PersoncourseEntity;
 import com.cybercom.example.springbootdemo.exceptions.PersonException;
+import com.cybercom.example.springbootdemo.repos.PersonCourseRepository;
 import com.cybercom.example.springbootdemo.repos.PersonRepository;
+import com.cybercom.example.springbootdemo.repos.impl.PersonCoursesRepositoryCustomImpl;
+import com.cybercom.example.springbootdemo.rest.responses.PersonCoursesResponse;
 import com.cybercom.example.springbootdemo.rest.responses.PersonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +26,10 @@ public class PersonController {
 
     @Autowired
     private PersonRepository personRepository;
+    @Autowired
+    private PersonCourseRepository personCourseRepository;
+    @Autowired
+    private PersonCoursesRepositoryCustomImpl personCoursesRepositoryCustom;
 
     @RequestMapping(value = "/all")
     @ResponseBody
@@ -55,5 +63,19 @@ public class PersonController {
         List<PersonEntity> personEntities = personRepository.findByRole(role);
         if(personEntities.isEmpty()) throw new PersonException(PERSON_NOT_FOUND_WITH + "role " + role);
         return personEntities.stream().map(PersonResponse::new).collect(Collectors.toList());
+    }
+
+    @GetMapping("/courses/{id}")
+    public List<PersonCoursesResponse> getPersonCoursesByPID(@PathVariable String id){
+        int pid = Integer.valueOf(id);
+        List<PersonCoursesResponse> pce = personCoursesRepositoryCustom.findPersonCoursesByPID(pid);
+        if(pce.isEmpty()) throw new PersonException("No courses were found for person with ID " + id);
+        return pce;
+    }
+
+    @GetMapping("/coursesv2/{pid}")
+    public List<PersoncourseEntity> getPersonCourses(@PathVariable String pid){
+        int id = Integer.valueOf(pid);
+        return personCourseRepository.findAllByPersonid(id);
     }
 }

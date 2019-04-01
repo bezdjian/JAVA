@@ -1,11 +1,13 @@
 package com.cybercom.example.springbootdemo.rest.responses;
 
 import com.cybercom.example.springbootdemo.entities.PersonEntity;
+import com.cybercom.example.springbootdemo.entities.PersoncourseEntity;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.List;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -30,6 +32,8 @@ public class PersonResponse {
     private String companyname;
     @XmlElement
     private String companyservices;
+    @XmlElement
+    private List<PersoncourseEntity> courses;
 
     public PersonResponse(PersonEntity entity) {
         this.username = entity.getUsername();
@@ -42,6 +46,7 @@ public class PersonResponse {
         this.companylocation = entity.getCompanylocation();
         this.companyname = entity.getCompanyname();
         this.companyservices = entity.getCompanyservices();
+        this.courses = entity.getPersoncourse();
     }
 
     public String getUsername() {
@@ -124,19 +129,11 @@ public class PersonResponse {
         this.companyservices = companyservices;
     }
 
-    @Override
-    public String toString() {
-        return "PersonResponse{" +
-                "username='" + username + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
-                ", country='" + country + '\'' +
-                ", role='" + role + '\'' +
-                ", accounttype='" + accounttype + '\'' +
-                ", companylocation='" + companylocation + '\'' +
-                ", companyname='" + companyname + '\'' +
-                ", companyservices='" + companyservices + '\'' +
-                '}';
+    public List<PersoncourseEntity> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<PersoncourseEntity> courses) {
+        this.courses = courses;
     }
 }

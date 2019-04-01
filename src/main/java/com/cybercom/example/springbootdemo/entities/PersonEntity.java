@@ -1,10 +1,12 @@
 package com.cybercom.example.springbootdemo.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "person", schema = "mylms")
 public class PersonEntity {
+
     private int id;
     private String accounttype;
     private String companylocation;
@@ -20,6 +22,8 @@ public class PersonEntity {
     private String profileImage;
     private String role;
     private String username;
+
+    private List<PersoncourseEntity> personcourse;
 
     @Id
     @Column(name = "id")
@@ -171,21 +175,14 @@ public class PersonEntity {
         this.username = username;
     }
 
-    @Override
-    public String toString() {
-        return "PersonEntity{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
-                ", role='" + role + '\'' +
-                ", country='" + country + '\'' +
-                ", gender='" + gender + '\'' +
-                ", accounttype='" + accounttype + '\'' +
-                ", companylocation='" + companylocation + '\'' +
-                ", companyname='" + companyname + '\'' +
-                ", companyservices='" + companyservices + '\'' +
-                '}';
+    @OneToMany(targetEntity = PersoncourseEntity.class,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "personid")
+    public List<PersoncourseEntity> getPersoncourse() {
+        return personcourse;
+    }
+
+    public void setPersoncourse(List<PersoncourseEntity> personcourse) {
+        this.personcourse = personcourse;
     }
 }

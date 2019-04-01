@@ -1,10 +1,9 @@
 package com.cybercom.example.springbootdemo.entities;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
-@Table(name = "personcourse", schema = "mylms", catalog = "")
+@Table(name = "personcourse", schema = "mylms")
 public class PersoncourseEntity {
     private int id;
     private Integer courseid;
@@ -74,20 +73,14 @@ public class PersoncourseEntity {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PersoncourseEntity that = (PersoncourseEntity) o;
-        return id == that.id &&
-                Objects.equals(courseid, that.courseid) &&
-                Objects.equals(enddate, that.enddate) &&
-                Objects.equals(enrolldate, that.enrolldate) &&
-                Objects.equals(personid, that.personid) &&
-                Objects.equals(startdate, that.startdate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, courseid, enddate, enrolldate, personid, startdate);
+    public String toString() {
+        return "PersoncourseEntity{" +
+                "id=" + id +
+                ", courseid=" + courseid +
+                ", enddate='" + enddate + '\'' +
+                ", enrolldate='" + enrolldate + '\'' +
+                ", personid=" + personid +
+                ", startdate='" + startdate + '\'' +
+                '}';
     }
 }
