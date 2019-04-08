@@ -1,6 +1,8 @@
 package com.cybercom.example.springbootdemo.rest.responses;
 
+import com.cybercom.example.springbootdemo.entities.CourseEntity;
 import com.cybercom.example.springbootdemo.entities.PersonEntity;
+import com.cybercom.example.springbootdemo.entities.PersoncourseEntity;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -23,10 +25,13 @@ public class PersonCoursesResponse {
     @XmlElement
     private String courseIdNumber;
 
-    public PersonCoursesResponse(PersonEntity pe) {
+    public PersonCoursesResponse(PersonEntity pe, CourseEntity c) {
         this.username = pe.getUsername();
         this.firstname = pe.getFirstname();
         this.lastname = pe.getLastname();
+        this.coursename = c.getCoursename();
+        this.courseIdNumber = c.getIdnumber();
+        this.courseDescription = c.getDescription();
     }
 
     public String getUsername() {
