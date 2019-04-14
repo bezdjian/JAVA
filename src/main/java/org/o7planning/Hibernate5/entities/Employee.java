@@ -28,7 +28,7 @@ public class Employee {
 	}
 	 
 	public Employee(Long empId, String empName, String job, Employee manager,
-	        Date hideDate, Float salary, Float comm, Department department) {
+	        Date hideDate, Float salary, Department department) {
 	    this.empId = empId;
 	    this.empNo = "E" + this.empId;
 	    this.empName = empName;
