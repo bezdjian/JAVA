@@ -65,19 +65,18 @@ public class PersonController {
         return personEntities.stream().map(PersonResponse::new).collect(Collectors.toList());
     }
 
-    @GetMapping("/courses/{id}")
-    public List<PersonCoursesResponse> getPersonCoursesByPID(@PathVariable String id){
-        int pid = Integer.valueOf(id);
-        List<PersonCoursesResponse> pce = personCoursesRepositoryCustom.findPersonCoursesByPID(pid);
+    @GetMapping("/courses/{pid}") // Spring boot way!!!
+    public List<PersonCoursesResponse> getPersonCourses(@PathVariable String pid){
+        int id = Integer.valueOf(pid);
+        List<PersonCoursesResponse> pce = personRepository.findAllPersonCoursesbyPersonId(id);
         if(pce.isEmpty()) throw new PersonException("No courses were found for person with ID " + id);
         return pce;
     }
 
-    @GetMapping("/coursesv2/{pid}") // Spring boot way!!!
-    public List<PersonCoursesResponse> getPersonCourses(@PathVariable String pid){
-        int id = Integer.valueOf(pid);
-        //return personCourseRepository.findAllByPersonid(id);
-        List<PersonCoursesResponse> pce = personRepository.findAllPersonCoursesbyPersonId(id);
+    @GetMapping("/coursesv2/{id}")
+    public List<PersonCoursesResponse> getPersonCoursesByPID(@PathVariable String id){
+        int pid = Integer.valueOf(id);
+        List<PersonCoursesResponse> pce = personCoursesRepositoryCustom.findPersonCoursesByPID(pid);
         if(pce.isEmpty()) throw new PersonException("No courses were found for person with ID " + id);
         return pce;
     }
