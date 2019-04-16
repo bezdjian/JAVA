@@ -73,9 +73,12 @@ public class PersonController {
         return pce;
     }
 
-    @GetMapping("/coursesv2/{pid}")
-    public List<PersoncourseEntity> getPersonCourses(@PathVariable String pid){
+    @GetMapping("/coursesv2/{pid}") // Spring boot way!!!
+    public List<PersonCoursesResponse> getPersonCourses(@PathVariable String pid){
         int id = Integer.valueOf(pid);
-        return personCourseRepository.findAllByPersonid(id);
+        //return personCourseRepository.findAllByPersonid(id);
+        List<PersonCoursesResponse> pce = personRepository.findAllPersonCoursesbyPersonId(id);
+        if(pce.isEmpty()) throw new PersonException("No courses were found for person with ID " + id);
+        return pce;
     }
 }
