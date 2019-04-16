@@ -8,12 +8,12 @@
 <div th:replace="../fragments/header :: header">&nbsp;</div>
 
 <div class="container">
-    <table>
+    <table class="table">
         <thead>
         <tr>
-            <td>First name</td>
-            <td>Last name</td>
-            <td>Email</td>
+            <th class="col">First name</th>
+            <th class="col">Last name</td>
+            <th class="col">Email</td>
         </tr>
         </thead>
         <tr th:each="person: ${personlist}">

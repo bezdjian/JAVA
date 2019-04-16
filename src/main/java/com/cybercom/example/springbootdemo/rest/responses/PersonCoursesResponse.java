@@ -1,37 +1,21 @@
 package com.cybercom.example.springbootdemo.rest.responses;
 
-import com.cybercom.example.springbootdemo.entities.CourseEntity;
-import com.cybercom.example.springbootdemo.entities.PersonEntity;
-import com.cybercom.example.springbootdemo.entities.PersoncourseEntity;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 public class PersonCoursesResponse {
-    @XmlElement
+
     private String username;
-    @XmlElement
     private String firstname;
-    @XmlElement
     private String lastname;
-    @XmlElement
     private String coursename;
-    @XmlElement
     private String courseDescription;
-    @XmlElement
     private String courseIdNumber;
 
-    public PersonCoursesResponse(PersonEntity pe, CourseEntity c) {
-        this.username = pe.getUsername();
-        this.firstname = pe.getFirstname();
-        this.lastname = pe.getLastname();
-        this.coursename = c.getCoursename();
-        this.courseIdNumber = c.getIdnumber();
-        this.courseDescription = c.getDescription();
+    public PersonCoursesResponse(String username, String firstname, String lastname, String coursename, String courseDescription, String courseIdNumber) {
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.coursename = coursename;
+        this.courseDescription = courseDescription;
+        this.courseIdNumber = courseIdNumber;
     }
 
     public String getUsername() {

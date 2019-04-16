@@ -17,9 +17,9 @@ public class PersonCoursesRepositoryCustomImpl implements PersonCoursesRepositor
 
     @Override
     public List<PersonCoursesResponse> findPersonCoursesByPID(int pid) {
-        em.getProperties().entrySet().stream().forEach(System.out::println);
-        //p.username, p.firstname, p.lastname, c.coursename, c.description, c.idnumber
-        String query = "select com.cybercom.example.springbootdemo.rest.responses.PersonCoursesResponse(p.id, c.id) " +
+        em.getProperties().entrySet().forEach(e -> System.out.println("----- EM: " + e.toString()));
+        String query = "select new com.cybercom.example.springbootdemo.rest.responses.PersonCoursesResponse" +
+                "(p.username, p.firstname, p.lastname, c.coursename, c.description, c.idnumber) " +
                 "from PersonEntity AS p " +
                 "join PersoncourseEntity AS pc on pc.personid = p.id " +
                 "join CourseEntity AS c on c.id = pc.courseid " +
@@ -28,6 +28,5 @@ public class PersonCoursesRepositoryCustomImpl implements PersonCoursesRepositor
                 em.createQuery(query, PersonCoursesResponse.class)
                 .setParameter("pid", pid);
         return response.getResultList();
-
     }
 }
