@@ -1,7 +1,6 @@
 package com.cybercom.example.springbootdemo.rest.controllers;
 
 import com.cybercom.example.springbootdemo.entities.PersonEntity;
-import com.cybercom.example.springbootdemo.entities.PersoncourseEntity;
 import com.cybercom.example.springbootdemo.exceptions.PersonException;
 import com.cybercom.example.springbootdemo.repos.PersonCourseRepository;
 import com.cybercom.example.springbootdemo.repos.PersonRepository;
@@ -65,17 +64,20 @@ public class PersonController {
         return personEntities.stream().map(PersonResponse::new).collect(Collectors.toList());
     }
 
-    @GetMapping("/courses/{id}")
+
+    @GetMapping("/courses/{pid}")
+    public List<PersonCoursesResponse> getPersonCourses(@PathVariable String pid){
+        int id = Integer.valueOf(pid);
+        List<PersonCoursesResponse> pce = personCourseRepository.findAllPersonCoursesbyPersonId(id);
+        if(pce.isEmpty()) throw new PersonException("No courses were found for person with ID " + id);
+        return pce;
+    }
+
+    @GetMapping("/coursesv2/{id}") // Custom repository
     public List<PersonCoursesResponse> getPersonCoursesByPID(@PathVariable String id){
         int pid = Integer.valueOf(id);
         List<PersonCoursesResponse> pce = personCoursesRepositoryCustom.findPersonCoursesByPID(pid);
         if(pce.isEmpty()) throw new PersonException("No courses were found for person with ID " + id);
         return pce;
-    }
-
-    @GetMapping("/coursesv2/{pid}")
-    public List<PersoncourseEntity> getPersonCourses(@PathVariable String pid){
-        int id = Integer.valueOf(pid);
-        return personCourseRepository.findAllByPersonid(id);
     }
 }

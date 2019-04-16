@@ -12,12 +12,13 @@ import java.util.List;
 @Repository
 public class PersonCoursesRepositoryCustomImpl implements PersonCoursesRepositoryCustom {
 
+    //A way to get the DB instance.
     @PersistenceContext
     private EntityManager em;
 
     @Override
     public List<PersonCoursesResponse> findPersonCoursesByPID(int pid) {
-        em.getProperties().entrySet().forEach(e -> System.out.println("----- EM: " + e.toString()));
+        //em.getProperties().entrySet().forEach(e -> System.out.println("----- EM: " + e.toString()));
         String query = "select new com.cybercom.example.springbootdemo.rest.responses.PersonCoursesResponse" +
                 "(p.username, p.firstname, p.lastname, c.coursename, c.description, c.idnumber) " +
                 "from PersonEntity AS p " +
