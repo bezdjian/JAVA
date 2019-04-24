@@ -17,6 +17,7 @@
         </tr>
         </thead>
         <tr th:each="person: ${personlist}">
+            <td><a th:href="@{'/person/' + ${person.id}}">#<span th:text="${person.id}"></span></a> </td>
             <td th:text="${person.firstname}"></td>
             <td th:text="${person.lastname}"></td>
             <td th:text="${person.email}"></td>
