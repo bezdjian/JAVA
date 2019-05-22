@@ -1,5 +1,6 @@
 package org.o7planning.Hibernate5.entities;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="DEPARTMENT", uniqueConstraints = {@UniqueConstraint(columnNames = {"DEPT_NO"}) })
-public class Department {
+public class Department implements Serializable {
 	
 	private Integer deptId;
 	private String deptNo;

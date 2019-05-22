@@ -1,5 +1,7 @@
 package org.o7planning.Hibernate5.entities;
 
+import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "EMPLOYEE",
    uniqueConstraints = { @UniqueConstraint(columnNames = { "EMP_NO" }) })
-public class Employee {
+public class Employee implements Serializable {
 
 	private Long empId;
 	private String empNo;
@@ -27,9 +29,8 @@ public class Employee {
 	public Employee() {
 	}
 	 
-	public Employee(Long empId, String empName, String job, Employee manager,
+	public Employee(String empName, String job, Employee manager,
 	        Date hideDate, Float salary, Department department) {
-	    this.empId = empId;
 	    this.empNo = "E" + this.empId;
 	    this.empName = empName;
 	    this.job = job;
@@ -40,6 +41,7 @@ public class Employee {
 	}
 	 
 	@Id
+	@GeneratedValue
 	@Column(name = "EMP_ID")
 	public Long getEmpId() {
 	    return empId;
@@ -133,5 +135,20 @@ public class Employee {
 	public void setEmployees(Set<Employee> employees) {
 		this.employees = employees;
 	}
-	
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empId=" + empId +
+                ", empNo='" + empNo + '\'' +
+                ", empName='" + empName + '\'' +
+                ", job='" + job + '\'' +
+                ", manager=" + manager +
+                ", hideDate=" + hideDate +
+                ", salary=" + salary +
+                ", image=" + Arrays.toString(image) +
+                ", department=" + department +
+                ", employees=" + employees +
+                '}';
+    }
 }
